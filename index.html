@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hdbseowoo</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: none;
+            position: relative;
+        }
+
+        
+
+        #background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://postfiles.pstatic.net/MjAyNDA3MjlfNzcg/MDAxNzIyMjU1OTE4NjM5.nfLdSKZ-S0DmO2WSTbIU6W4dBmT3jOq4FEUkMQdLx7cg.xtJZqHaRyxiX1VlgZAJdqkdQ8y2P2t2-nmNvOf5ocE4g.JPEG/567D4E02-B0E8-46F4-B4BC-4DCA13B41847.jpeg?type=w966') no-repeat center center;
+            background-size: cover; /* 이미지가 화면에 꽉 차도록 설정 */
+            filter: blur(2px); /* 사진을 약간 흐리게 설정 */
+            opacity: 0.9; /* 사진을 10% 더 진하게 설정 */
+            z-index: 1;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2); /* 반투명한 오버레이 */
+            z-index: 2;
+        }
+
+        #letter {
+            font-family: 'Arial', sans-serif;
+            font-size: 30px; /* 1.5배 키운 크기 */
+            color: rgb(255, 255, 255); /* 글씨 색상을 밝게 설정 */
+            text-align: center;
+            position: relative;
+            z-index: 3; /* 글씨를 최상위에 배치 */
+            font-weight: bold;
+        }
+
+        .star {
+            position: fixed;
+            background: #fafaf7;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            clip-path: polygon(
+                50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+            );
+            animation: twinkle 30s infinite;
+            z-index: 4; /* 별들을 최상위에 배치 */
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(500px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-image"></div>
+    <div id="overlay"></div>
+    <div id="letter">
+         <p>무너지지 말고<br><br>매일매일이<br><br>생일인 것처럼 살자!</p>
+    </div>
+    
+    <!-- Generate stars using JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const numberOfStars = 50;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                createStar();
+            }
+
+            function createStar() {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * window.innerWidth}px`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                star.style.top = `${Math.random() * window.innerHeight}px`; 
+
+                document.body.appendChild(star); // Append stars to body
+            }
+        });
+    </script>
+</body>
+</html>
+
